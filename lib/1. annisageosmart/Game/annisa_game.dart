@@ -1,3 +1,4 @@
+import 'package:annisageosmart/1.%20annisageosmart/annisageosmart.dart';
 import 'package:annisageosmart/const/style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -617,7 +618,7 @@ class Soal6Annisa extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         (_soal6cont.text == '114')
-                            ? Get.off(() => Soal7Annisa())
+                            ? Get.off(() => const Soal7Annisa())
                             : Get.off(() => const Soal6AnnisaSalah());
                       },
                       child: const Text('Jawab!'))
@@ -640,7 +641,7 @@ class Soal6AnnisaSalah extends StatelessWidget {
       body: SafeArea(
           child: GestureDetector(
               onTap: () {
-                Get.to(() => Soal6Annisa());
+                Get.to(() => const Soal7Annisa());
               },
               child: Image.asset('assets/ruparupa/5_soal.png'))),
     );
@@ -652,6 +653,434 @@ class Soal7Annisa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.2,
+            height: MediaQuery.of(context).size.height / 2,
+            child: Center(
+              child: Text(
+                '1. Ada keinginan dan kemampuan lebih untuk dapat bersaing di negeri sendiri\n2. Penghasilan lebih besar\n3. Memiliki fasilitas pendidikan yang baik untuk melanjutkan sekolah atau kuliah\n4. Lapangan kerja yang tersedia tidak cukup banyak \nFaktor penarik untuk melakukan emigrasi ditunjukkan oleh nomor 1 dan 3',
+                textAlign: TextAlign.left,
+                style: styleTitle.copyWith(
+                    fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const Soal7AnnisaSalah());
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.green),
+                  child: Center(
+                      child: Text(
+                    'Benar',
+                    style:
+                        styleTitle.copyWith(color: Colors.white, fontSize: 20),
+                  )),
+                ),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const Soal8Annisa());
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.green),
+                  child: Center(
+                      child: Text(
+                    'Salah',
+                    style:
+                        styleTitle.copyWith(color: Colors.white, fontSize: 20),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
+  }
+}
+
+class Soal7AnnisaSalah extends StatelessWidget {
+  const Soal7AnnisaSalah({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: GestureDetector(
+              onTap: () {
+                Get.to(() => const Soal8Annisa());
+              },
+              child: Image.asset('assets/ruparupa/6_soal.png'))),
+    );
+  }
+}
+
+class Soal8Annisa extends StatelessWidget {
+  const Soal8Annisa({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.2,
+            height: MediaQuery.of(context).size.height / 4,
+            child: Center(
+              child: Text(
+                'Di antara ciri-ciri piramida penduduk Indonesia adalah sebagian besar penduduknya berada pada kelompok usia muda dengan tingkat kelahiran dan kematian yang tinggi. Berdasarkan hal tersebut maka gambar piramida penduduknya berbentuk ….',
+                textAlign: TextAlign.left,
+                style: styleTitle.copyWith(
+                    fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => Soal9Annisa());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3,
+                      height: MediaQuery.of(context).size.height / 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green),
+                      child: Center(
+                          child: Text(
+                        'Segitiga',
+                        style: styleTitle.copyWith(
+                            color: Colors.white, fontSize: 20),
+                      )),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const Soal8AnnisaSalah());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3,
+                      height: MediaQuery.of(context).size.height / 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green),
+                      child: Center(
+                          child: Text(
+                        'Ketupat',
+                        style: styleTitle.copyWith(
+                            color: Colors.white, fontSize: 20),
+                      )),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const Soal8AnnisaSalah());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3,
+                      height: MediaQuery.of(context).size.height / 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green),
+                      child: Center(
+                          child: Text(
+                        'Granat',
+                        style: styleTitle.copyWith(
+                            color: Colors.white, fontSize: 20),
+                      )),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const Soal8AnnisaSalah());
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3,
+                      height: MediaQuery.of(context).size.height / 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.green),
+                      child: Center(
+                          child: Text(
+                        'Batu Nisan',
+                        style: styleTitle.copyWith(
+                            color: Colors.white, fontSize: 20),
+                      )),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
+  }
+}
+
+class Soal8AnnisaSalah extends StatelessWidget {
+  const Soal8AnnisaSalah({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: GestureDetector(
+              onTap: () {
+                Get.to(() => Soal9Annisa());
+              },
+              child: Image.asset('assets/ruparupa/7_soal.png'))),
+    );
+  }
+}
+
+class Soal9Annisa extends StatelessWidget {
+  Soal9Annisa({Key? key}) : super(key: key);
+
+  final TextEditingController _soal9cont = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 1.2,
+                height: MediaQuery.of(context).size.height / 3,
+                child: Center(
+                  child: Text(
+                    'Desa Mojogedang pada pertengahan tahun 2019 berjumlah 10.500 jiwa. Jumlah kelahiran selama tahun 2019 sebanyak 123 jiwa. Jumlah bayi yang lahir kemudian meninggal seketika itu tercatat tiga jiwa. Berdasarkan data ini maka jumlah angka kelahiran kasar (crude birth rate) Desa Mojogedang pada tahun 2019 adalah ….',
+                    textAlign: TextAlign.center,
+                    style: styleTitle.copyWith(
+                        fontWeight: FontWeight.w500, fontSize: 18),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: TextFormField(
+                      controller: _soal9cont,
+                      decoration: const InputDecoration(
+                          labelText: 'jawaban dengan angka ya!'),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        (_soal9cont.text == '11')
+                            ? Get.off(() => const Soal10Annisa())
+                            : Get.off(() => const Soal9AnnisaSalah());
+                      },
+                      child: const Text('Jawab!'))
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Soal9AnnisaSalah extends StatelessWidget {
+  const Soal9AnnisaSalah({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: GestureDetector(
+              onTap: () {
+                Get.to(() => const Soal10Annisa());
+              },
+              child: Image.asset('assets/ruparupa/8_soal.png'))),
+    );
+  }
+}
+
+class Soal10Annisa extends StatelessWidget {
+  const Soal10Annisa({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.2,
+            height: MediaQuery.of(context).size.height / 2,
+            child: Center(
+              child: Text(
+                'Sensus penduduk yang pengisian datanya dilakukan oleh responden merupakan sensus dengan menggunakan metode householder',
+                textAlign: TextAlign.left,
+                style: styleTitle.copyWith(
+                    fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const FinalGame());
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.green),
+                  child: Center(
+                      child: Text(
+                    'Benar',
+                    style:
+                        styleTitle.copyWith(color: Colors.white, fontSize: 20),
+                  )),
+                ),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const FinalGame());
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.green),
+                  child: Center(
+                      child: Text(
+                    'Salah',
+                    style:
+                        styleTitle.copyWith(color: Colors.white, fontSize: 20),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
+  }
+}
+
+class FinalGame extends StatelessWidget {
+  const FinalGame({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.2,
+            height: MediaQuery.of(context).size.height / 2,
+            child: Center(
+              child: Text(
+                'Jawabannya Adalah "Benar!"',
+                textAlign: TextAlign.left,
+                style: styleTitle.copyWith(
+                    fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.offAll(() => const AnnisaMateri());
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.green),
+                  child: Center(
+                      child: Text(
+                    'Kembali Ke Menu Utama',
+                    style:
+                        styleTitle.copyWith(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
   }
 }
