@@ -1,6 +1,5 @@
 import 'package:annisageosmart/1.%20annisageosmart/annisageosmart.dart';
 import 'package:annisageosmart/const/style.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -120,7 +119,7 @@ class Soal1 extends StatelessWidget {
     Widget okButton = TextButton(
       child: const Text("Lanjut!"),
       onPressed: () {
-        Get.off(() => Soal2Annisa());
+        Get.off(() => const Soal2Annisa());
       },
     );
 
@@ -178,7 +177,7 @@ class Soal1Salah extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          Get.to(() => Soal2Annisa());
+          Get.to(() => const Soal2Annisa());
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -193,9 +192,9 @@ class Soal1Salah extends StatelessWidget {
 }
 
 class Soal2Annisa extends StatelessWidget {
-  Soal2Annisa({Key? key}) : super(key: key);
+  const Soal2Annisa({Key? key}) : super(key: key);
 
-  bool _isSalah = false;
+  final bool _isSalah = false;
 
   @override
   Widget build(BuildContext context) {
