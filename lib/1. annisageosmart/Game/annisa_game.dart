@@ -102,8 +102,8 @@ class Soal1 extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         (_soal1cont.text == '110')
-                            ? Get.off(() => Soal2Annisa())
-                            : Get.off(() => const Soal1Salah());
+                            ? jawabanBenar(context)
+                            : jawabanSalah(context);
                       },
                       child: const Text('Jawab!'))
                 ],
@@ -112,6 +112,60 @@ class Soal1 extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => Soal2Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal1Salah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Lanjut ke pembahasan"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -170,10 +224,7 @@ class Soal2Annisa extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  _isSalah = true;
-                  if (kDebugMode) {
-                    print('tertekan');
-                  }
+                  jawabanSalah(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -193,7 +244,7 @@ class Soal2Annisa extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal3Annisa());
+                  jawabanBenar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -218,6 +269,60 @@ class Soal2Annisa extends StatelessWidget {
               : Container()
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal3Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.back();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -252,7 +357,7 @@ class Soal3Annisa extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal4Annisa());
+                  jawabanBenar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -273,7 +378,7 @@ class Soal3Annisa extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal3AnnisaSalah());
+                  jawabanSalah(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -293,6 +398,60 @@ class Soal3Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal4Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal3AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -351,7 +510,7 @@ class Soal4Annisa extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal4AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -372,7 +531,7 @@ class Soal4Annisa extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal4AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -398,7 +557,7 @@ class Soal4Annisa extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal5Annisa());
+                      jawabanBenar(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -419,7 +578,7 @@ class Soal4Annisa extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal4AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -441,6 +600,60 @@ class Soal4Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal5Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal4AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -504,7 +717,7 @@ class Soal5Annisa extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => Soal6Annisa());
+                  jawabanBenar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 1.2,
@@ -531,7 +744,7 @@ class Soal5Annisa extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal5AnnisaSalah());
+                  jawabanSalah(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 1.2,
@@ -554,6 +767,60 @@ class Soal5Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => Soal6Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal5AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -618,8 +885,8 @@ class Soal6Annisa extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         (_soal6cont.text == '114')
-                            ? Get.off(() => const Soal7Annisa())
-                            : Get.off(() => const Soal6AnnisaSalah());
+                            ? jawabanBenar(context)
+                            : jawabanSalah(context);
                       },
                       child: const Text('Jawab!'))
                 ],
@@ -628,6 +895,60 @@ class Soal6Annisa extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal7Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal6AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -678,7 +999,7 @@ class Soal7Annisa extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal7AnnisaSalah());
+                  jawabanSalah(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -699,7 +1020,7 @@ class Soal7Annisa extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Soal8Annisa());
+                  jawabanBenar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -719,6 +1040,60 @@ class Soal7Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal8Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal7AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -771,7 +1146,7 @@ class Soal8Annisa extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => Soal9Annisa());
+                      jawabanBenar(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -792,7 +1167,7 @@ class Soal8Annisa extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal8AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -818,7 +1193,7 @@ class Soal8Annisa extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal8AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -839,7 +1214,7 @@ class Soal8Annisa extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const Soal8AnnisaSalah());
+                      jawabanSalah(context);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3,
@@ -861,6 +1236,60 @@ class Soal8Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => Soal9Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal8AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -925,8 +1354,8 @@ class Soal9Annisa extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         (_soal9cont.text == '11')
-                            ? Get.off(() => const Soal10Annisa())
-                            : Get.off(() => const Soal9AnnisaSalah());
+                            ? jawabanBenar(context)
+                            : jawabanSalah(context);
                       },
                       child: const Text('Jawab!'))
                 ],
@@ -935,6 +1364,60 @@ class Soal9Annisa extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const Soal10Annisa());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.off(() => const Soal9AnnisaSalah());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -985,7 +1468,7 @@ class Soal10Annisa extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const FinalGame());
+                  jawabanBenar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -1006,7 +1489,7 @@ class Soal10Annisa extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const FinalGame());
+                  jawabanSalah(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width / 3,
@@ -1026,6 +1509,60 @@ class Soal10Annisa extends StatelessWidget {
           ),
         ],
       )),
+    );
+  }
+
+  jawabanBenar(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Lanjut!"),
+      onPressed: () {
+        Get.off(() => const FinalGame());
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Benar"),
+      content: const Text("Lanjut Ke Soal Selanjutnya"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  jawabanSalah(BuildContext context) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("Baik!"),
+      onPressed: () {
+        Get.back();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Jawaban Kamu Salah"),
+      content: const Text("Pilih jawaban yang tepat!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
