@@ -1,5 +1,5 @@
 import 'package:annisageosmart/const/style.dart';
-import 'package:annisageosmart/views/3.kelas.dart';
+import 'package:annisageosmart/views/3.%20kelas.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

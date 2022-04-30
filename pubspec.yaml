@@ -58,6 +58,11 @@ flutter:
     - assets/materi/1/
     - assets/materi/2/
     - assets/materi/3/
+    - assets/ayudm/
+    - assets/ayudm/materiayu/kp1/
+    - assets/ayudm/materiayu/kp2/
+    - assets/ayudm/materiayu/kp3/
+    - assets/ayudm/materiayu/kp4/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -1,10 +1,10 @@
+import 'package:annisageosmart/2.%20ayudmgeosmart/ayudm_materi.dart';
 import 'package:annisageosmart/const/style.dart';
-import 'package:annisageosmart/views/4.semester.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class KelasMenu extends StatelessWidget {
-  const KelasMenu({Key? key}) : super(key: key);
+class MateriKelas10 extends StatelessWidget {
+  const MateriKelas10({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,34 @@ class KelasMenu extends StatelessWidget {
             child: Column(
           children: [
             Image.asset(
-              'assets/icontitle/Kelas.png',
+              'assets/icontitle/Materi.png',
               width: MediaQuery.of(context).size.width / 2,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 15,
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
+              width: MediaQuery.of(context).size.width / 1.5,
+              height: MediaQuery.of(context).size.height / 10,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                )),
+                child: Text(
+                  'Kelas Atmosfer',
+                  style: stylemenu,
+                ),
+                onPressed: () {
+                  Get.to(() => const AyuDMMateri());
+                },
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 25,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 1.5,
               height: MediaQuery.of(context).size.height / 10,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -35,7 +55,7 @@ class KelasMenu extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18.0),
                     )),
                 child: Text(
-                  'Kelas X',
+                  'Keberagaman Kebudayaan Indonesia',
                   style: stylemenu,
                 ),
                 onPressed: () {},
@@ -45,27 +65,7 @@ class KelasMenu extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 25,
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              height: MediaQuery.of(context).size.height / 10,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                )),
-                child: Text(
-                  'Kelas XI',
-                  style: stylemenu,
-                ),
-                onPressed: () {
-                  Get.to(() => const SemesterMenu());
-                },
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 25,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
+              width: MediaQuery.of(context).size.width / 1.5,
               height: MediaQuery.of(context).size.height / 10,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -74,7 +74,7 @@ class KelasMenu extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18.0),
                     )),
                 child: Text(
-                  'Kelas XII',
+                  'Mitigasi Bencana Alam',
                   style: stylemenu,
                 ),
                 onPressed: () {},
