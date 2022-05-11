@@ -2,6 +2,7 @@ import 'package:annisageosmart/1.%20annisageosmart/Materi/materi_1_video.dart';
 import 'package:annisageosmart/const/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class Materi1 extends StatefulWidget {
   const Materi1({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _Materi1State extends State<Materi1> {
           child: Column(
             children: [
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 width: MediaQuery.of(context).size.width / 1.5,
@@ -52,7 +53,7 @@ class _Materi1State extends State<Materi1> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 width: MediaQuery.of(context).size.width / 1.1,
@@ -64,8 +65,9 @@ class _Materi1State extends State<Materi1> {
                       width: MediaQuery.of(context).size.width / 1.2,
                       height: MediaQuery.of(context).size.height / 3,
                       color: Colors.white24,
-                      child: const Center(
-                        child: Text('Nanti Animasi Disini'),
+                      child: Center(
+                        child:
+                            Lottie.asset('assets/animations/earth_bounce.json'),
                       ),
                     ),
                     const SizedBox(

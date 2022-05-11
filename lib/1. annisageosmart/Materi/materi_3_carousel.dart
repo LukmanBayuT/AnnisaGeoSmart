@@ -113,46 +113,48 @@ class _Materi3IntiState extends State<Materi3Inti> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CarouselSlider(
-            items: myData,
-            options: CarouselOptions(
-                reverse: false,
-                enableInfiniteScroll: false,
-                autoPlay: false,
-                enlargeCenterPage: true,
-                // aspectRatio: 0.7,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                }),
-            carouselController: _controller,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: myData.asMap().entries.map((entry) {
-              return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
-                child: Container(
-                  width: 4.0,
-                  height: 4.0,
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 4.0),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: (Theme.of(context).brightness == Brightness.dark
-                              ? Colors.white
-                              : Colors.blueAccent)
-                          .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-                ),
-              );
-            }).toList(),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CarouselSlider(
+              items: myData,
+              options: CarouselOptions(
+                  reverse: false,
+                  enableInfiniteScroll: false,
+                  autoPlay: false,
+                  enlargeCenterPage: true,
+                  // aspectRatio: 0.7,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+              carouselController: _controller,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: myData.asMap().entries.map((entry) {
+                return GestureDetector(
+                  onTap: () => _controller.animateToPage(entry.key),
+                  child: Container(
+                    width: 4.0,
+                    height: 4.0,
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 4.0),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: (Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : Colors.blueAccent)
+                            .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
