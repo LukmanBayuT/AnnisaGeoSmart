@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MateriAyuKp1 extends StatefulWidget {
   const MateriAyuKp1({Key? key}) : super(key: key);
@@ -11,6 +12,13 @@ class MateriAyuKp1 extends StatefulWidget {
 class _MateriAyuKp1State extends State<MateriAyuKp1> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
+
+  void _launchUrl() async {
+    if (!await launchUrl(
+        Uri.parse('https://www.youtube.com/watch?v=zBhVs5BIs_4'))) {
+      throw 'Could not launch';
+    }
+  }
 
   final List<Widget> myData = [
     InteractiveViewer(
@@ -37,12 +45,32 @@ class _MateriAyuKp1State extends State<MateriAyuKp1> {
                 fit: BoxFit.contain)),
       ),
     ),
-    InteractiveViewer(
+    SafeArea(
       child: Container(
+        width: 600,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/ayudm/materiayu/kp1/3.png'),
                 fit: BoxFit.contain)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 325,
+              height: 100,
+              child: ElevatedButton(
+                onPressed: () {
+                  launchUrl(
+                      Uri.parse('https://www.youtube.com/watch?v=zBhVs5BIs_4'));
+                },
+                child: const Text('Menuju Video'),
+              ),
+            ),
+          ],
+        ),
       ),
     ),
     InteractiveViewer(

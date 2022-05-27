@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MateriAyuKp3 extends StatefulWidget {
   const MateriAyuKp3({Key? key}) : super(key: key);
@@ -221,12 +222,39 @@ class _MateriAyuKp3State extends State<MateriAyuKp3> {
                 fit: BoxFit.contain)),
       ),
     ),
-    InteractiveViewer(
+    // InteractiveViewer(
+    //   child: Container(
+    //     decoration: const BoxDecoration(
+    //         image: DecorationImage(
+    //             image: AssetImage('assets/ayudm/materiayu/kp3/26.png'),
+    //             fit: BoxFit.contain)),
+    //   ),
+    // ),
+    SafeArea(
       child: Container(
+        width: 600,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/ayudm/materiayu/kp3/26.png'),
                 fit: BoxFit.contain)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 325,
+              height: 100,
+              child: ElevatedButton(
+                onPressed: () {
+                  launchUrl(Uri.parse('https://www.youtube.com/watch?v=6-'));
+                },
+                child: const Text('Menuju Video'),
+              ),
+            ),
+          ],
+        ),
       ),
     ),
     InteractiveViewer(

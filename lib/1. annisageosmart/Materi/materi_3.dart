@@ -67,7 +67,7 @@ class _Materi3State extends State<Materi3> {
                       color: Colors.white24,
                       child: Center(
                         child:
-                            Lottie.asset('assets/animations/earth_around.json'),
+                            Lottie.asset('assets/animations/earth_uniq.json'),
                       ),
                     ),
                     const SizedBox(

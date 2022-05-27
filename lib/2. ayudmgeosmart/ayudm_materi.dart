@@ -1,6 +1,9 @@
 // ignore_for_file: unused_import
 
+import 'package:annisageosmart/2.%20ayudmgeosmart/Materi/kikdtujuan/kikd.dart';
+import 'package:annisageosmart/2.%20ayudmgeosmart/Materi/kikdtujuan/tujuan.dart';
 import 'package:annisageosmart/2.%20ayudmgeosmart/Materi/materi_utama_ayu.dart';
+import 'package:annisageosmart/2.%20ayudmgeosmart/ayudm_game.dart';
 import 'package:annisageosmart/const/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +41,7 @@ class AyuDMMateri extends StatelessWidget {
                         height: MediaQuery.of(context).size.height / 10,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.grey,
+                              primary: Colors.blueAccent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
                               )),
@@ -46,7 +49,9 @@ class AyuDMMateri extends StatelessWidget {
                             'KI / KD',
                             style: stylemenu,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const KIKDAyu());
+                          },
                         ),
                       ),
                       SizedBox(
@@ -57,7 +62,7 @@ class AyuDMMateri extends StatelessWidget {
                         height: MediaQuery.of(context).size.height / 10,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.grey,
+                              primary: Colors.blueAccent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
                               )),
@@ -65,7 +70,9 @@ class AyuDMMateri extends StatelessWidget {
                             'Tujuan',
                             style: stylemenu,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const TujuanAyu());
+                          },
                         ),
                       ),
                       SizedBox(
@@ -97,7 +104,7 @@ class AyuDMMateri extends StatelessWidget {
                         height: MediaQuery.of(context).size.height / 10,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.grey,
+                              primary: Colors.blueAccent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
                               )),
@@ -105,7 +112,9 @@ class AyuDMMateri extends StatelessWidget {
                             'Game',
                             style: stylemenu,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const AyuGame());
+                          },
                         ),
                       ),
                     ],
